@@ -1,0 +1,40 @@
+﻿<Window x:Class="Pethical.Framework.ErrorWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"        
+        ResizeMode="NoResize"        
+        WindowStartupLocation="CenterScreen"
+        Title="Hiba történt"
+        SizeToContent="Height"
+        Width="490">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>                
+                <ResourceDictionary Source="pack://application:,,,/Pethical.Framework.Resources;component/Templates.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/Pethical.Framework.Resources;component/Default.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>        
+    </Window.Resources>    
+    <DockPanel>
+        <StackPanel Orientation="Horizontal" DockPanel.Dock="Bottom" 
+                    HorizontalAlignment="Center" Margin="0,0,0,10">
+            <Button Click="Button_Click">
+                <StackPanel Orientation="Horizontal">
+                    <Image Height="16" Width="16" Source="{DynamicResource ResourceKey=Send}" />
+                    <TextBlock Margin="5,0,0,0">Küldés</TextBlock>
+                </StackPanel>
+                </Button>
+            <Button IsCancel="True">
+                <StackPanel Orientation="Horizontal">
+                    <Image Height="16" Width="16" Source="{DynamicResource ResourceKey=Close}" />
+                    <TextBlock Margin="5,0,0,0">Bezárás</TextBlock>
+                </StackPanel>
+            </Button>
+        </StackPanel>
+        <StackPanel DockPanel.Dock="Left" Margin="10" Width="290">
+            <ContentControl Content="{Binding}" />
+        </StackPanel>
+        <StackPanel DockPanel.Dock="Right" Margin="10">
+            <Image Stretch="None" Source="{DynamicResource ErrorImage}" />
+        </StackPanel>
+    </DockPanel>
+</Window>
